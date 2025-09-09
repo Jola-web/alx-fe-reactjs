@@ -13,6 +13,8 @@ const RecipeList = () => {
           <h3>{recipe.title}</h3>
           <p>{recipe.description}</p>
           <Link to={`/recipes/${recipe.id}`}>View Details</Link>
+          <FavoriteButton recipeId={recipe.id} />
+
         </div>
       ))}
     </div>

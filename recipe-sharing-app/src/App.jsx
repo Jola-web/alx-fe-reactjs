@@ -3,6 +3,8 @@ import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
 import SearchBar from './components/SearchBar';
+import FavoritesList from './components/FavoritesList';
+import RecommendationsList from './components/RecommendationsList';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,13 +14,17 @@ function App() {
       <div style={{ maxWidth: '600px', margin: '0 auto', padding: '16px' }}>
       <h1>Recipe Sharing App</h1>
       <nav>
-          <Link to="/">Home</Link>
+          <Link to="/">Home</Link> | 
+          <Link to="/favorites">Favorites</Link> | 
+          <Link to="/recommendations">Recommendations</Link>
       </nav>
       <SearchBar />
       <AddRecipeForm />
       <RecipeList />
       <Routes>
         <Route path="/recipes/:id" element={<RecipeDetails />} />
+        <Route path="/favorites" element={<FavoritesList />} />
+        <Route path="/recommendations" element={<RecommendationsList />} />
       </Routes>
       <a href="https://vite.dev" target="_blank">
         <img src={viteLogo} className="logo" alt="Vite logo" />

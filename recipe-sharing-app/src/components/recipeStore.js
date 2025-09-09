@@ -1,17 +1,22 @@
 import { create } from 'zustand';
 
-export const useRecipeStore = create((set) => ({
+export const useRecipeStore = create((set, get) => ({
   recipes: [],
   searchTerm: '',
   filteredRecipes: [],
+  favorites: [],
+  recommendations: [],
 
   addRecipe: (newRecipe) =>
-    set((state) => ({ 
-      recipes: [...state.recipes, newRecipe],
-      filteredRecipes: [...state.recipes, newRecipe].filter((recipe) =>
-        recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
-      ),
-    })),
+    set((state) => { 
+      const updatedRecipes = [...state.recipes, newRecipe];
+      return {
+        recipes: updatedRecipes,
+        filteredRecipes: updatedRecipes.filter((recipe) =>
+          recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+        ),
+      };
+    }),
 
   updateRecipe: (updatedRecipe) =>
     set((state) => {
@@ -39,7 +44,7 @@ export const useRecipeStore = create((set) => ({
 
   setSearchTerm: (term) => {
     set({ searchTerm: term });
-    get().filterRecipes(); // trigger filtering immediately
+    get().filterRecipes();
   },
 
   filterRecipes: () =>
@@ -50,4 +55,37 @@ export const useRecipeStore = create((set) => ({
     })),
 
   setRecipes: (recipes) => set({ recipes, filteredRecipes: recipes }),
+  // ---- Favorites actions ----
+  addFavorite: (recipeId) =>
+    set((state) => ({
+      favorites: state.favorites.includes(recipeId)
+        ? state.favorites
+        : [...state.favorites, recipeId],
+    })),
+
+  removeFavorite: (recipeId) =>
+    set((state) => ({
+      favorites: state.favorites.filter((id) => id !== recipeId),
+    })),
+
+  // ---- Recommendations ----
+  generateRecommendations: () =>
+    set((state) => {
+      if (state.favorites.length === 0) return { recommendations: [] };
+
+      // Simple logic: recommend recipes that are not already favorites
+      // but share the same first word in title as one of the favorites
+      const favRecipes = state.recipes.filter((r) =>
+        state.favorites.includes(r.id)
+      );
+      const keywords = favRecipes.map((r) => r.title.split(" ")[0].toLowerCase());
+
+      const recommended = state.recipes.filter(
+        (recipe) =>
+          !state.favorites.includes(recipe.id) &&
+          keywords.some((k) => recipe.title.toLowerCase().startsWith(k))
+      );
+
+      return { recommendations: recommended };
+    }),
 }));

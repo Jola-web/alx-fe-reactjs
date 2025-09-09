@@ -23,6 +23,7 @@ const RecipeDetails = () => {
       <DeleteRecipeButton recipeId={recipe.id} />
 
       <Link to="/">⬅ Back to Recipes</Link>
+      <FavoriteButton recipeId={recipe.id} />
     </div>
   );
 };
