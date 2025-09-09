@@ -1,4 +1,3 @@
-// src/components/RecipeList.jsx
 import { useRecipeStore } from './recipeStore';
 
 const RecipeList = () => {
