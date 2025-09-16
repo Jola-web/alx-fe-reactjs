@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 
+import Search from "./components/Search";
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -9,6 +11,7 @@ function App() {
      <div>
        <h1>GitHub User Search</h1>
        <p>Setup is working! 🚀</p>
+        <Search />
      </div>
       <div>
         <a href="https://vite.dev" target="_blank">
