@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+
 import './App.css'
 
 import Search from "./components/Search";
@@ -11,6 +14,7 @@ function App() {
      <div>
        <h1>GitHub User Search</h1>
        <p>Setup is working! 🚀</p>
+       <div className="min-h-screen bg-gray-50"></div>
         <Search />
      </div>
       <div>
