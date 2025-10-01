@@ -3,18 +3,25 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["200g spaghetti", "100g pancetta", "2 eggs", "50g parmesan cheese", "Black pepper"],
+    "instructions": ["Boil pasta in salted water.", "Fry pancetta until crispy.", "Whisk eggs with cheese.", "Mix pasta with pancetta and egg mixture.", "Serve with extra cheese and pepper."]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["500g chicken breast", "1 cup yogurt", "Spices", "2 onions", "2 tomatoes", "1 cup cream"],
+    "instructions": ["Marinate chicken in yogurt and spices.", "Grill or pan-fry until golden.", "Cook onions and tomatoes into a sauce.", "Add chicken and cream, simmer until thick.", "Serve with rice or naan."]
   },
+
   {
     "id": 3,
     "title": "Avocado Toast",
     "summary": "Toasted bread topped with smashed avocado, olive oil, and a sprinkle of salt.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["2 slices of bread", "1 ripe avocado", "1 tbsp olive oil", "Salt to taste", "Optional: red pepper flakes, lemon juice"],
+    "instructions": ["Toast the bread until golden brown.", "Cut and scoop out the avocado, then mash it in a bowl.", "Mix with olive oil, salt, and optional lemon juice.", "Spread avocado mixture evenly on toast.", "Sprinkle with red pepper flakes if desired and serve immediately."]
   }
 ]
