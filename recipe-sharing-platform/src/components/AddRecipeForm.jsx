@@ -45,7 +45,7 @@ const AddRecipeForm = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-5">
-      <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-2xl p-8">
+      <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-2xl p-6 md:p-10">
         <h1 className="text-2xl font-bold text-gray-800 mb-6">
           Add a New Recipe
         </h1>
@@ -59,7 +59,7 @@ const AddRecipeForm = () => {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+              className="w-full border border-gray-300 rounded-lg p-3 md:p-4 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
               placeholder="Enter recipe title"
             />
             {errors.title && (
