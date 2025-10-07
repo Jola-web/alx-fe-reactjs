@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 import RegistrationForm from './components/RegistrationForm.jsx'
-import FormikForm from './components/FormikForm.jsx'
+import FormikForm from './components/formikForm.js'
 
 function App() {
   const [count, setCount] = useState(0)
