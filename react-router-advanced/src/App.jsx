@@ -3,12 +3,12 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import Home from "./pages/Home";
-import About from "./pages/About";
+import Home from "./components/Home.jsx";
+import About from "./components/About.jsx";
 import Profile from "./components/Profile";
-import ProfileDetails from "./pages/ProfileDetails";
-import ProfileSettings from "./pages/ProfileSettings";
-import BlogPost from "./pages/BlogPost.jsx";
+import ProfileDetails from "./components/ProfileDetails.jsx";
+import ProfileSettings from "./components/ProfileSettings.jsx";
+import BlogPost from "./components/BlogPost.jsx";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -34,6 +34,7 @@ function App() {
           {/* 🧩 Nested Routes */}
           <Route path="details" element={<ProfileDetails />} />
           <Route path="settings" element={<ProfileSettings />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
         </Route>
       </Routes>
     </Router>
