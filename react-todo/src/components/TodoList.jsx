@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function TodoList() {
   const [todos, setTodos] = useState([
-    { id: 1, text: "Learn React", completed: false },
+    { id: 1, text: "Learn React", completed: true }, // 👈 mark as completed
     { id: 2, text: "Build a project", completed: false },
   ]);
   const [newTodo, setNewTodo] = useState("");
@@ -22,7 +22,7 @@ function TodoList() {
   };
 
   const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
 
   return (
@@ -34,14 +34,10 @@ function TodoList() {
         onChange={(e) => setNewTodo(e.target.value)}
       />
       <button onClick={addTodo}>Add</button>
-
+      
       <ul>
         {todos.map((todo) => (
-          <li
-            key={todo.id}
-            onClick={() => toggleTodo(todo.id)}
-            className={todo.completed ? "completed" : ""}
-          >
+          <li key={todo.id} className={todo.completed ? "completed" : ""}>
             {todo.text}
             <button onClick={() => deleteTodo(todo.id)}>Delete</button>
           </li>
